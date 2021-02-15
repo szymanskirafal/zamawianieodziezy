@@ -12,49 +12,52 @@
   </head>
   <body>
     <div class="mb-1">
+
      <nav class="navbar navbar-expand-md navbar-light bg-light">
-       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-         <span class="navbar-toggler-icon"></span>
-       </button>
-       <a class="navbar-brand" href="#">Odziez</a>
-
-       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-         <ul class="navbar-nav mr-auto">
-
-           <li class="nav-item">
-             <a class="nav-link" href="#">Opis</a>
-           </li>
-           {% if request.user.is_authenticated %}
-             {% if request.user.manager %}
+       <div class="container-fluid">
+         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+         </button>
+         <a class="navbar-brand" href="#">Home</a>
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+           <ul class="navbar-nav mr-auto">
+             <li class="nav-item">
+               <a class="nav-link" href="#">Opis</a>
+             </li>
+             {% if request.user.is_authenticated %}
+               {% if request.user.manager %}
+                 <li class="nav-item">
+                   <a class="nav-link" href="#">Pracownicy</a>
+                 </li>
+                 <li class="nav-item">
+                   <a class="nav-link" href="#">Zamówienia</a>
+                 </li>
+               {% elif request.user.supervisor %}
+                 <li class="nav-item">
+                   <a class="nav-link" href="#">Supervisor</a>
+                 </li>
+               {% endif %}
                <li class="nav-item">
-                 <a class="nav-link" href="#">Pracownicy</a>
+                 {# URL provided by django-allauth/account/urls.py #}
+                 <a class="nav-link" href="#">Mój Profil</a>
                </li>
+
                <li class="nav-item">
-                 <a class="nav-link" href="#">Zamówienia</a>
+                 {# URL provided by django-allauth/account/urls.py #}
+                 <a class="nav-link" href="{% url 'account_logout' %}">Wyloguj się</a>
                </li>
-             {% elif request.user.supervisor %}
+             {% else %}
                <li class="nav-item">
-                 <a class="nav-link" href="#">Supervisor</a>
+                 {# URL provided by django-allauth/account/urls.py #}
+                 <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">Zaloguj się</a>
                </li>
              {% endif %}
-             <li class="nav-item">
-               {# URL provided by django-allauth/account/urls.py #}
-               <a class="nav-link" href="#">Mój Profil</a>
-             </li>
-
-             <li class="nav-item">
-               {# URL provided by django-allauth/account/urls.py #}
-               <a class="nav-link" href="{% url 'account_logout' %}">Wyloguj się</a>
-             </li>
-           {% else %}
-             <li class="nav-item">
-               {# URL provided by django-allauth/account/urls.py #}
-               <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">Zaloguj się</a>
-             </li>
-           {% endif %}
-         </ul>
+           </ul>
+         </div>
        </div>
      </nav>
+     {% block content %}{% endblock %}
+
 
    </div>
     <!-- Optional JavaScript; choose one of the two! -->
