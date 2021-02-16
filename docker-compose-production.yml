@@ -1,0 +1,26 @@
+# docker-compose-production.yml
+version: '3.8'
+
+services:
+  web:
+    build: .
+    command: python /code/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    environment:
+      - "DJANGO_SECRET_KEY=vip-QRTZ_YGYC2s0SK4M-0vIKux0W9Tkqu78GxTx2u91wGglxmM"
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: "db"
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+volumes:
+  postgres_data:
