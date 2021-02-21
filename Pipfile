@@ -9,6 +9,7 @@ psycopg2-binary = "*"
 django-allauth = "*"
 django-crispy-forms = "*"
 environs = {extras = ["django"], version = "*"}
+gunicorn = "*"
 
 [dev-packages]
 
