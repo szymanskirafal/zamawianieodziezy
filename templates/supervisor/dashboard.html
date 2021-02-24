@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<h1>Supervisor Dashboard</h1>
+
+<a class="btn btn-primary" href="#" role="button">Zamówienie specjalne</a>
+
+<h2>Zamówienia przysłane do akceptacji.</h2>
+{% if not orders_not_approved %}
+  <p>Nie ma zamówień czekających na akceptację.</p>
+{% else %}
+  {% for order in orders_not_approved %}
+    <div class="shadow p-3 mb-5 bg-light rounded">
+      <p>Zamawiający: {{ order.manager }}</p>
+      <p>Data przysłania do akceptacji: {{ order.date_of_sending_to_supervisor|date:"d - m - Y" }}</p>
+      <a class="btn btn-primary" href="{% url 'supervisor:order' pk=order.pk %}" role="button">Zobacz</a>
+    </div>
+  {% endfor %}
+{% endif %}
+
+<h2>Zamówienia wysłane do producenta, ale producent nie zrealizował ich jeszcze.</h2>
+{% if not orders_sent_to_manufacturer %}
+  <p>Nie ma zamówień wysłanych do producenta.</p>
+{% else %}
+  {% for order in orders_sent_to_manufacturer %}
+    <div class="shadow p-3 mb-5 bg-light rounded">
+      <p>Zamawiający: {{ order.manager }}</p>
+      <p>Data przysłania do akceptacji: {{ order.date_of_sending_to_supervisor|date:"d - m - Y" }}</p>
+      <p>Data wysłania do producenta: {{ order.date_of_sending_to_manufacturer|date:"d - m - Y" }}</p>
+    </div>
+  {% endfor %}
+{% endif %}
+
+<h2>Zamówienia dostarczone przez producenta.</h2>
+{% if not orders_received_from_manufacturer %}
+  <p>Nie ma zamówień otrzymanych od producenta.</p>
+{% else %}
+  {% for order in orders_received_from_manufacturer %}
+    <div class="shadow p-3 mb-5 bg-light rounded">
+      <p>Zamawiający: {{ order.manager }}</p>
+      <p>Data przysłania do akceptacji: {{ order.date_of_sending_to_supervisor|date:"d - m - Y" }}</p>
+      <p>Data wysłania do producenta: {{ order.date_of_sending_to_manufacturer|date:"d - m - Y" }}</p>
+      <p>Data otrzymania od producenta: {{ order.date_of_receiving_from_manufacturer|date:"d - m - Y" }}</p>
+    </div>
+  {% endfor %}
+{% endif %}
+
+
+
+{% endblock content %}

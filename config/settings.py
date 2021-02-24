@@ -43,6 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.sites',
 
     # Local
+    'clothes.apps.ClothesConfig',
+    'employees.apps.EmployeesConfig',
+    'orders.apps.OrdersConfig',
+    'supervisor.apps.SupervisorConfig',
     'users.apps.UsersConfig',
 
      # Third-party

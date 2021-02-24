@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<h1>Potwierdzenie przyjęcia ubrania.</h1>
+<p>Ubranie {{ clothe.kind.name }}</p>
+<p>dla {{ clothe.employee.name }} {{ clothe.employee.surname }}</p>
+<p>dostarczono zgodnie z zamówieniem.</p>
+<form action="#" method="post">
+  {{ form.as_p }}
+  {% csrf_token %}
+  <input class="btn btn-success btn-lg" type="submit" value="Potwierdź">
+</form>
+<hr>
+
+<a class="btn btn-danger" href="#" role="button">Zrezygnuj</a>
+
+{% endblock content %}

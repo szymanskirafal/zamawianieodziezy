@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<h1>Usuń ubranie z zamówienia</h1>
+
+<div class="jumbotron">
+
+
+  <form method="post">
+    {% csrf_token %}
+    <p>{{ clothe.kind.name }}</p>
+    <p>{{ clothe.kind.description }}</p>
+    <p>{{ clothe.employee.name }} {{ clothe.employee.surname }}, {{ clothe.employee.job }}</p>
+
+
+    <input type="submit" class="btn btn-danger" value="Usuń">
+  </form>
+</div>
+
+
+{% endblock content %}

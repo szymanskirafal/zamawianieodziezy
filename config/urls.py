@@ -22,5 +22,7 @@ urlpatterns = [
     path('admin-page-here/', admin.site.urls),
     # User management
     path('accounts/', include('allauth.urls')),
+    path('clothes/', include('clothes.urls', namespace='clothes')),
+    path('employees/', include('employees.urls', namespace='employees')),
     path('users/', include('users.urls')),
 ]

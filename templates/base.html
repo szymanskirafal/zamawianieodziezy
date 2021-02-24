@@ -28,14 +28,14 @@
              {% if request.user.is_authenticated %}
                {% if request.user.manager %}
                  <li class="nav-item">
-                   <a class="nav-link" href="#">Pracownicy</a>
+                   <a class="nav-link" href="{% url 'employees:employees' %}">Pracownicy</a>
                  </li>
                  <li class="nav-item">
-                   <a class="nav-link" href="#">Zamówienia</a>
+                   <a class="nav-link" href="{% url 'orders:orders' %}">Zamówienia</a>
                  </li>
                {% elif request.user.supervisor %}
                  <li class="nav-item">
-                   <a class="nav-link" href="#">Supervisor</a>
+                   <a class="nav-link" href="{% url 'supervisor:dashboard' %}">Supervisor</a>
                  </li>
                {% endif %}
                <li class="nav-item">

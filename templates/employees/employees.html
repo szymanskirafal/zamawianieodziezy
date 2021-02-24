@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<h1>Pracownicy</h1>
+<p>Mijesce pracy: {{ work_place }}</p>
+
+{% for employee in employees %}
+
+  <a href="{{ employee.get_absolut_url }}">
+    {{ employee.name }}
+    {{ employee.surname }}
+    - {{ employee.job.name }}
+  </a>
+  <br>
+
+{% endfor %}
+<hr>
+<a class="btn btn-primary" href="{% url 'employees:add' %}" role="button">Dodaj nowego pracownika</a>
+
+
+{% if order_not_sent %}
+  <hr>
+  <h3>Masz zamówienie przygotowane do wysłania.</h3>
+  <a class="btn btn-primary btn-lg" href="{% url 'orders:prepared' %}" role="button">Sprawdź</a>
+{% endif %}
+{% endblock content %}

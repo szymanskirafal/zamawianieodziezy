@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<h1>Supervisor</h1>
+<p>Zamówienie</p>
+<p>Zamawiający: {{ order.manager }}</p>
+<p>Data przysłania zamówienia: {{ order.date_of_sending_to_supervisor|date:"d - m - Y" }}</p>
+<hr>
+{% for clothe in clothes %}
+  <div class="shadow p-3 mb-5 bg-light rounded">
+    <p>{{ clothe.kind__name }} dla {{ clothe.employee__name }} {{ clothe.employee__surname }}</p>
+
+    {% for prefetched_dict in employees_with_prefetched %}
+      {% if prefetched_dict.name == clothe.employee__name %}
+        {% if prefetched_dict.clothes__kind__name == clothe.kind__name %}
+          <p>Kinds matches {{ prefetched_dict.clothes__kind__name }} = {{ clothe.kind__name }}</p>
+          <p>Prepared to order: {{ prefetched_dict.clothes__prepared_to_order }}</p>
+          <p>Ordered: {{ prefetched_dict.clothes__ordered }}</p>
+          <p>Received: {{ prefetched_dict.clothes__received }}</p>
+          <p>Delivered_ok: {{ prefetched_dict.clothes__delivered_ok }}</p>
+          <p>Owned: {{ prefetched_dict.clothes__owned }}</p>
+          <p>In use: {{ prefetched_dict.clothes__in_use }}</p>
+          <p>Destroyed: {{ prefetched_dict.clothes__destroyed }}</p>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+    <a class="btn btn-danger" href="{% url 'supervisor:delete-clothe' clothe.id %}" role="button">Usuń</a>
+  </div>
+{% endfor %}
+
+
+<h3>Wyślij zamówienie do producenta.</h3>
+<a class="btn btn-success btn-lg" href="{% url 'supervisor:send' order.id %}" role="button">Wyślij</a>
+<br><br>
+
+
+
+
+
+{% endblock content %}

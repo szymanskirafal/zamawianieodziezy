@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<h1>Wyślij zamówienie do zatwierdzenia.</h1>
+
+<form action="#" method="post">
+  {{ form.as_p }}
+  {% csrf_token %}
+  <input class="btn btn-success btn-lg" type="submit" value="Wyślij">
+</form>
+<hr>
+
+<a class="btn btn-danger" href="#" role="button">Zrezygnuj</a>
+
+{% endblock content %}
