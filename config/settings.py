@@ -132,6 +132,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+# to refenrece in templates
 
 STATICFILES_DIRS = (str(BASE_DIR.joinpath('static')),)
 # for local development
