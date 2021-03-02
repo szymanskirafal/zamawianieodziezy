@@ -136,8 +136,9 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (str(BASE_DIR.joinpath('static')),)
 # for local development
-
-STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
+import os
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
 # for production development
 
 STATICFILES_FINDERS = [
