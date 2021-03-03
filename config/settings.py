@@ -142,12 +142,14 @@ USE_TZ = True
 # STATICFILES_DIRS = (str(BASE_DIR.joinpath('static')),)
 # for local development
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'staticfiles/admin/css'),
     '/var/www/static/',
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
 # for production development
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
