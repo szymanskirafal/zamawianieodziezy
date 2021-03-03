@@ -10,6 +10,7 @@ django-allauth = "*"
 django-crispy-forms = "*"
 environs = {extras = ["django"], version = "*"}
 gunicorn = "*"
+whitenoise = "*"
 
 [dev-packages]
 
