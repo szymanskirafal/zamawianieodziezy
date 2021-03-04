@@ -143,11 +143,9 @@ USE_TZ = True
 # for local development
 
 
-STATIC_URL = '/static/'
+STATIC_URL = '/staticfiles/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
-    os.path.join(BASE_DIR, 'staticfiles/admin/css'),
-    '/var/www/static/',
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
