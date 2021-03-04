@@ -139,7 +139,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 # to refenrece in templates
 
-STATICFILES_DIRS = (str(BASE_DIR.joinpath('static')),)
+STATICFILES_DIRS = [str(BASE_DIR.joinpath('static')),]
 # for local development
 
 STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
