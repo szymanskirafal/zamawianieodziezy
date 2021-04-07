@@ -112,6 +112,7 @@ class Person(TimeStampedModel):
     sex = models.CharField(_('płeć'), max_length = 1, choices = SEX,)
     height = models.PositiveSmallIntegerField(_('wzrost'), )
     colar = models.PositiveSmallIntegerField(_('kołnierzyk'), )
+    chest = models.PositiveSmallIntegerField(_('obwód klatki'), max_length = 3)
     width_waist = models.PositiveSmallIntegerField(_('szerokość w pasie'), )
     body_size = models.CharField(_('rozmiar'), max_length = 2, choices = SIZE,)
     shoe_size = models.PositiveSmallIntegerField(_('nr buta'), )
