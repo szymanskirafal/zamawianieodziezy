@@ -163,7 +163,7 @@ class Manager(Person):
         verbose_name_plural = 'Kierownicy'
 
     def __str__(self):
-        return self.name + ' ' + self.surname + ' - ' + str(self.job) + ' - ' + str(self.work_place)
+        return self.name + ' ' + self.surname + ' - ' + str(self.work_place)
 
 
 class Supervisor(models.Model):
