@@ -30,5 +30,8 @@ class Order(models.Model):
         verbose_name = 'Zamówienia'
         verbose_name_plural = 'Zamówienia'
 
+    def __str__(self):
+        return 'Zamówienie - ' + str(self.manager)
+
     def get_absolute_url(self):
         return reverse('orders:order', args=[str(self.id)])
