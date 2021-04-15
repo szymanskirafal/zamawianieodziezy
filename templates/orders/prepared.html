@@ -1,22 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="container">
+  <h1>Zamówienie przygotowane do wysłania.</h1>
+  <h2>Zamówienie dla {{ order.place_of_delivery.name }}</h2>
 
-<h1>Zamówienie przygotowane do wysłania.</h1>
-<h2>Zamówienie dla {{ order.place_of_delivery.name }}</h2>
+  {% for clothe in clothes %}
+    <div class="jumbotron">
+      <p>{{ clothe.kind__name }}, {{ clothe.employee__name }} {{ clothe.employee__surname }}</p>
+      <a class="btn btn-outline-danger" href="{% url 'clothes:delete' clothe.id %}" role="button">Usuń</a>
+    </div>
 
-{% for clothe in clothes %}
-  <div class="jumbotron">
-    <p>{{ clothe.kind__name }}, {{ clothe.employee__name }} {{ clothe.employee__surname }}</p>
-    <a class="btn btn-danger" href="{% url 'clothes:delete' clothe.id %}" role="button">Usuń</a>
-  </div>
+  {% endfor %}
 
-{% endfor %}
+  <a class="btn btn-outline-primary" href="{% url 'orders:send' order.id %}" role="button">Wyślij zamówinie</a>
+  <br><br>
+</div>
 
 
-<hr>
-
-<a class="btn btn-success btn-lg" href="{% url 'orders:send' order.id %}" role="button">Wyślij zamówinie</a>
-<br><br>
 
 {% endblock content %}

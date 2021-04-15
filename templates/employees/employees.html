@@ -1,28 +1,27 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="container">
+  <br><br>
+  <h1>Pracownicy</h1>
+  <p>Mijesce pracy: {{ work_place }}</p>
 
+  {% for employee in employees %}
 
-<h1>Pracownicy</h1>
-<p>Mijesce pracy: {{ work_place }}</p>
+    <a href="{{ employee.get_absolut_url }}">
+      {{ employee.name }}
+      {{ employee.surname }}
+      - {{ employee.job.name }}
+    </a>
+    <br><br>
 
-{% for employee in employees %}
+  {% endfor %}
+  <a class="btn btn-outline-primary" href="{% url 'employees:add' %}" role="button">Dodaj nowego pracownika</a>
 
-  <a href="{{ employee.get_absolut_url }}">
-    {{ employee.name }}
-    {{ employee.surname }}
-    - {{ employee.job.name }}
-  </a>
-  <br>
-
-{% endfor %}
-<hr>
-<a class="btn btn-primary" href="{% url 'employees:add' %}" role="button">Dodaj nowego pracownika</a>
-
-
-{% if order_not_sent %}
-  <hr>
-  <h3>Masz zamówienie przygotowane do wysłania.</h3>
-  <a class="btn btn-primary btn-lg" href="{% url 'orders:prepared' %}" role="button">Sprawdź</a>
-{% endif %}
+  <br><br>
+  {% if order_not_sent %}
+    <h3>Masz zamówienie przygotowane do wysłania.</h3>
+    <a class="btn btn-outline-danger" href="{% url 'orders:prepared' %}" role="button">Sprawdź</a>
+  {% endif %}
+</div>
 {% endblock content %}
