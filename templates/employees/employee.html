@@ -1,46 +1,49 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="container">
+  <h1>Pracownik</h1>
 
-<h1>Pracownik</h1>
+  <p>{{ employee.name }} {{ employee.surname }}</p>
+  <p>{{ employee.job.name }}</p>
+  <p>{{ employee.work_place.name }}</p>
+  <a class="btn btn-outline-primary" href="{% url 'employees:update' employee.pk %}" role="button">Edytuj dane pracownika</a>
+  <br><br>
+  {% if kinds_that_can_be_ordered %}
+    <h3>Ubrania, które można zamówić</h3>
 
-<p>{{ employee.name }} {{ employee.surname }}</p>
-<p>{{ employee.job.name }}</p>
-<p>{{ employee.work_place.name }}</p>
-<a class="btn btn-primary" href="{% url 'employees:update' employee.pk %}" role="button">Edytuj dane pracownika</a>
-<br><br>
-{% if kinds_that_can_be_ordered %}
-  <h3>Ubrania, które można zamówić</h3>
+    {% for kind in kinds_that_can_be_ordered %}
+      <div class="p-3 mb-2 bg-light rounded shadow-sm">
+        <p>{{ kind.name }}</p>
+        <a class="btn btn-outline-primary" href="{% url 'clothes:clothe-create' kind.pk employee.pk %}" role="button">Zamów</a>
+      </div>
+    {% endfor %}
+    <br><br>
+  {% endif %}
+  {% if kinds_prepared_to_order %}
+    <h3>Ubrania, które są w trakcie zamawiania</h3>
+    {% for kind in kinds_prepared_to_order %}
+      <div class="p-3 mb-2 bg-primary text-white">
+        <p>{{ kind.name }}</p>
+        <a class="btn btn-success" href="#" role="button">Sprawdź</a>
+      </div>
+    {% endfor %}
+    <br><br>
+  {% endif %}
+  {% if kinds_that_can_not_be_ordered_yet %}
+    <h3>Ubrania, których NIE można zamówić</h3>
+    {% for kind in kinds_that_can_not_be_ordered_yet %}
+      <div class="jumbotron">
+        <p>{{ kind.name }}</p>
+        <a class="btn btn-success" href="#" role="button">Sprawdź</a>
+      </div>
+    {% endfor %}
+    <br><br>
+  {% endif %}
+  <br><br>
+</div>
 
-  {% for kind in kinds_that_can_be_ordered %}
-    <div class="jumbotron">
-      <p>{{ kind.name }}</p>
-      <a class="btn btn-success" href="{% url 'clothes:clothe-create' kind.pk employee.pk %}" role="button">Zamów</a>
-    </div>
-  {% endfor %}
-  <br><br>
-{% endif %}
-{% if kinds_prepared_to_order %}
-  <h3>Ubrania, które są w trakcie zamawiania</h3>
-  {% for kind in kinds_prepared_to_order %}
-    <div class="jumbotron">
-      <p>{{ kind.name }}</p>
-      <a class="btn btn-success" href="#" role="button">Sprawdź</a>
-    </div>
-  {% endfor %}
-  <br><br>
-{% endif %}
-{% if kinds_that_can_not_be_ordered_yet %}
-  <h3>Ubrania, których NIE można zamówić</h3>
-  {% for kind in kinds_that_can_not_be_ordered_yet %}
-    <div class="jumbotron">
-      <p>{{ kind.name }}</p>
-      <a class="btn btn-success" href="#" role="button">Sprawdź</a>
-    </div>
-  {% endfor %}
-  <br><br>
-{% endif %}
-<br><br>
+
 
 <!--
 {% for kind in kinds_of_available_clothes.all %}

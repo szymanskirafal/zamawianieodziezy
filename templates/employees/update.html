@@ -1,17 +1,20 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-
-
-<h1>Edytuj dane pracownika.</h1>
-
-<form action="#" method="post">
-  {{ form.as_p }}
-  {% csrf_token %}
-  <input class="btn btn-success" type="submit" value="Zatwierdź">
-</form>
-<hr>
-
-<a class="btn btn-danger" href="{% url 'employees:employees' %}" role="button">Zrezygnuj</a>
+<div class="container">
+  <h1>Edytuj dane pracownika</h1>
+  <div class="row col-md-6">
+    <form action="#" method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <br><br>
+      <input class="btn btn-outline-primary" type="submit" value="Zatwierdź">
+    </form>
+  </div>
+  <br><br>
+  <a class="btn btn-outline-danger" href="{% url 'employees:employees' %}" role="button">Zrezygnuj</a>
+</div>
+<br><br>
 
 {% endblock content %}
