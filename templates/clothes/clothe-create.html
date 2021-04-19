@@ -1,22 +1,26 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="container">
+  <h1>Dodaj ubranie do zamówienia.</h1>
+
+  <p>{{ kind.name }}</p>
+  <p>{{ kind.description }}</p>
+  <p>dla pracownika - {{ employee.name }} {{ employee.surname }}</p>
+  <p>miejsce pracy - {{ employee.work_place.name }}</p>
+
+  <form action="#" method="post">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <input class="btn btn-outline-success" type="submit" value="Dodaj do zamówienia">
+  </form>
+
+  <a class="btn btn-outline-danger" href="#" role="button">Zrezygnuj</a>
+
+</div>
 
 
-<h1>Dodaj ubranie do zamówienia.</h1>
 
-<p>{{ kind.name }}</p>
-<p>{{ kind.description }}</p>
-<p>dla pracownika - {{ employee.name }} {{ employee.surname }}</p>
-<p>miejsce pracy - {{ employee.work_place.name }}</p>
 
-<form action="#" method="post">
-  {{ form.as_p }}
-  {% csrf_token %}
-  <input class="btn btn-success" type="submit" value="Dodaj do zamówienia">
-</form>
-<hr>
-
-<a class="btn btn-danger" href="#" role="button">Zrezygnuj</a>
 
 {% endblock content %}

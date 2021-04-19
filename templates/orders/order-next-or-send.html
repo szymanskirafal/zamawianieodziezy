@@ -1,12 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="container">
+  <h2>Przeglądaj kolejne ubrania do zamówienia</h2>
+  <a class="btn btn-outline-primary" href="{% url 'employees:employees' %}" role="button">Dodaj kolejne obrania</a>
+  <h2>Zobacz zamówienie</p>
+  <a class="btn btn-outline-primary" href="#" role="button">Zakończ i wyślij zamówienie</a>
+</div>
 
 
-<h2>Przeglądaj kolejne ubrania do zamówienia</h2>
-<a class="btn btn-primary" href="{% url 'employees:employees' %}" role="button">Dodaj kolejne obrania</a>
-<h2>Zobacz zamówienie</p>
-<a class="btn btn-primary" href="#" role="button">Zakończ i wyślij zamówienie</a>
+
 
 
 {% endblock content %}
