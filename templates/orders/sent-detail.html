@@ -8,7 +8,7 @@
 
 
   {% for clothe in order.clothes_ordered.all %}
-    <div class="shadow p-3 mb-5 bg-light rounded">
+    <div class="shadow-sm p-3 mb-5 bg-light rounded">
       <h2 class="display-5">{{ clothe.kind.name }} dla {{ clothe.employee.name }} {{ clothe.employee.surname }}</h2>
       <p>Ubranie dostarczono zgodnie z zamówieniem.</p>
       <a class="btn btn-outline-success" href="{% url 'clothes:delivered' clothe.id %}" role="button">Ubranie jest OK</a>

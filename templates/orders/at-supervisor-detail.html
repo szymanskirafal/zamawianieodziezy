@@ -2,14 +2,14 @@
 
 {% block content %}
 <div class="container">
+  <br><br>
   <h1>Zamówienie - niezaakceptowane jeszcze przez Nadzorcę.</h1>
 
   <p>Data wysłania zamówienia: {{ order.date_of_sending_to_supervisor|date:"d - m - Y" }}</p>
 
-
   {% for clothe in clothes %}
     <div class="shadow-sm p-3 mb-5 bg-light rounded">
-      <p class="display-5">{{ clothe.kind__name }} dla {{ clothe.employee__name }} {{ clothe.employee__surname }}</p>
+      <p>{{ clothe.kind__name }} dla {{ clothe.employee__name }} {{ clothe.employee__surname }}</p>
     </div>
   {% endfor %}
   <br><br>
@@ -17,5 +17,5 @@
 
 
 </div>
-<br<br>
+<br><br>
 {% endblock content %}

@@ -21,11 +21,11 @@
     <br><br>
   {% endif %}
   {% if kinds_prepared_to_order %}
-    <h3>Ubrania, które są w trakcie zamawiania</h3>
+    <h3>Ubrania, które zamówiono</h3>
     {% for kind in kinds_prepared_to_order %}
-      <div class="p-3 mb-2 bg-primary text-white">
+      <div class="p-3 mb-2 bg-light bg-gradient shadow-sm">
         <p>{{ kind.name }}</p>
-        <a class="btn btn-success" href="#" role="button">Sprawdź</a>
+        <a class="btn btn-outline-primary" href="#" role="button">Sprawdź</a>
       </div>
     {% endfor %}
     <br><br>

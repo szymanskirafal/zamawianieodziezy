@@ -2,17 +2,19 @@
 
 {% block content %}
 <div class="container">
+  <br><br>
   <h1>Zamówienie przygotowane do wysłania.</h1>
+  <br><br>
   <h2>Zamówienie dla {{ order.place_of_delivery.name }}</h2>
-
+  <br><br>
   {% for clothe in clothes %}
-    <div class="jumbotron">
+    <div class="shadow-sm p-3 mb-5 bg-light rounded">
       <p>{{ clothe.kind__name }}, {{ clothe.employee__name }} {{ clothe.employee__surname }}</p>
       <a class="btn btn-outline-danger" href="{% url 'clothes:delete' clothe.id %}" role="button">Usuń</a>
     </div>
 
   {% endfor %}
-
+  <br><br>
   <a class="btn btn-outline-primary" href="{% url 'orders:send' order.id %}" role="button">Wyślij zamówinie</a>
   <br><br>
 </div>
