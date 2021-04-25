@@ -13,6 +13,7 @@
       <p>{{ clothe.kind__name }} dla {{ clothe.employee__name }} {{ clothe.employee__surname }}</p>
 
       {% for prefetched_dict in employees_with_prefetched %}
+        <p>dict {{ prefetched_dict }}</p>
         {% if prefetched_dict.name == clothe.employee__name %}
           {% if prefetched_dict.clothes__kind__name == clothe.kind__name %}
             <p>Kinds matches {{ prefetched_dict.clothes__kind__name }} = {{ clothe.kind__name }}</p>

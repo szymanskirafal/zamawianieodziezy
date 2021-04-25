@@ -103,19 +103,19 @@ class SupervisorOrderUpdateView(
         form.instance.approved_by_supervisor = True
         form.instance.sent_to_manufacturer = True
         form.instance.date_of_sending_to_manufacturer = localdate()
-        from_email =  getattr(settings, "DEFAULT_FROM_EMAIL")
-        to =  getattr(settings, "DEFAULT_TO_EMAIL")
+        #from_email =  getattr(settings, "DEFAULT_FROM_EMAIL")
+        #to =  getattr(settings, "DEFAULT_TO_EMAIL")
         #fake_manufacturer_email =  getattr(settings, "FAKE_MANUFACTURER_EMAIL")
         #fake_supervisor_email = getattr(settings, "FAKE_SUPERVISOR_EMAIL")
         #manufaturer_email = fake_manufacturer_email
         #supervisor_email = fake_supervisor_email
-        email = EmailMessage(
-            subject = 'Zamówienie odzieży roboczej',
-            body = 'W aplikacji jest nowe zamówienie',
-            from_email = from_email,
-            to = [to, ],
-        )
-        email.send()
+        #email = EmailMessage(
+        #    subject = 'Zamówienie odzieży roboczej',
+        #    body = 'W aplikacji jest nowe zamówienie',
+        #    from_email = from_email,
+        #    to = [to, ],
+        #)
+        #email.send()
         return super().form_valid(form)
 
 
