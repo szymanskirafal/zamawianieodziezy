@@ -86,7 +86,6 @@ class OrderSendUpdateView(generic.UpdateView):
         #    to = [supervisor.email],
         #    )
         #email.send()
-        print('------ date ', form.instance.date_of_sending_to_supervisor)
         return super().form_valid(form)
 
 

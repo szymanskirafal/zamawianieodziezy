@@ -103,11 +103,13 @@ class SupervisorOrderUpdateView(
         form.instance.approved_by_supervisor = True
         form.instance.sent_to_manufacturer = True
         form.instance.date_of_sending_to_manufacturer = localdate()
-        pk = form.instance.pk
-        order = Order.objects.get(pk=pk).select_related('clothes_in_order')
-        clothes = order.clothes_in_order
-        for clothe in order:
+        order = Order.objects.get(pk = form.instance.pk)
+        clothes = Clothe.objects.all()
+        clothes = clothes.filter(order = order)
+        for clothe in clothes:
+            clothe.prepared_to_order = False
             clothe.ordered = localdate()
+            clothe.save()
         #from_email =  getattr(settings, "DEFAULT_FROM_EMAIL")
         #to =  getattr(settings, "DEFAULT_TO_EMAIL")
         #fake_manufacturer_email =  getattr(settings, "FAKE_MANUFACTURER_EMAIL")
