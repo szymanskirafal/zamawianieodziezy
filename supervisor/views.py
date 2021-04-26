@@ -103,9 +103,7 @@ class SupervisorOrderUpdateView(
         form.instance.approved_by_supervisor = True
         form.instance.sent_to_manufacturer = True
         form.instance.date_of_sending_to_manufacturer = localdate()
-        order = Order.objects.get(pk = form.instance.pk)
-        clothes = Clothe.objects.all()
-        clothes = clothes.filter(order = order)
+        clothes = Clothe.objects.filter(order = self.get_object())
         for clothe in clothes:
             clothe.prepared_to_order = False
             clothe.ordered = localdate()

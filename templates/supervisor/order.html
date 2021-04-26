@@ -16,7 +16,6 @@
         <p>dict {{ prefetched_dict }}</p>
         {% if prefetched_dict.name == clothe.employee__name %}
           {% if prefetched_dict.clothes__kind__name == clothe.kind__name %}
-            <p>Kinds matches {{ prefetched_dict.clothes__kind__name }} = {{ clothe.kind__name }}</p>
             <p>Prepared to order: {{ prefetched_dict.clothes__prepared_to_order }}</p>
             <p>Ordered: {{ prefetched_dict.clothes__ordered }}</p>
             <p>Received: {{ prefetched_dict.clothes__received }}</p>
