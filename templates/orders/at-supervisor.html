@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container">
+<div class="container bg-light">
   <br><br>
   <h1>Zamówienia - wysłane do Nadzorcy, ale nie zaakceptowane jeszcze prze Nadzorcę.</h1>
   <br><br>
   {% for order in orders %}
-    <div class="shadow-sm p-3 mb-5 bg-light rounded">
+    <div class="shadow-sm p-3 mb-5 bg-white rounded">
       <p>Data wysłania: {{ order.date_of_sending_to_supervisor|date:"d - m - Y" }}</p>
       {% for clothe in order.clothes_ordered.all %}
         <p>{{ clothe.kind.name }} dla {{ clothe.employee.name }} {{ clothe.employee.surname }}</p>

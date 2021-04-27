@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container">
+<div class="container bg-light">
   <br><br>
   <h1>Zamówienie</h1>
   <p>Zamawiający: {{ order.manager }}</p>
@@ -9,20 +9,15 @@
   <p>Zamówienie na:</p>
 
   {% for clothe in clothes %}
-    <div class="shadow p-3 mb-5 bg-light rounded">
+    <div class="shadow p-3 mb-5 bg-white rounded">
       <p>{{ clothe.kind__name }} dla {{ clothe.employee__name }} {{ clothe.employee__surname }}</p>
 
       {% for prefetched_dict in employees_with_prefetched %}
-        <p>dict {{ prefetched_dict }}</p>
         {% if prefetched_dict.name == clothe.employee__name %}
           {% if prefetched_dict.clothes__kind__name == clothe.kind__name %}
-            <p>Prepared to order: {{ prefetched_dict.clothes__prepared_to_order }}</p>
-            <p>Ordered: {{ prefetched_dict.clothes__ordered }}</p>
-            <p>Received: {{ prefetched_dict.clothes__received }}</p>
-            <p>Delivered_ok: {{ prefetched_dict.clothes__delivered_ok }}</p>
-            <p>Owned: {{ prefetched_dict.clothes__owned }}</p>
-            <p>In use: {{ prefetched_dict.clothes__in_use }}</p>
-            <p>Destroyed: {{ prefetched_dict.clothes__destroyed }}</p>
+            {% if prefetched_dict.clothes__delivered_ok %}
+              <p>Pracownik otrzymał takie ubranie {{ prefetched_dict.clothes__received }}</p>
+            {% endif %}
           {% endif %}
         {% endif %}
       {% endfor %}

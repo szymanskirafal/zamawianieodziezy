@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container">
+<div class="container bg-light">
   <h1>Zamówienia - oczekiwanie na dostawę.</h1>
 
   {% for order in orders %}
-    <div class="shadow p-3 mb-5 bg-light rounded">
+    <div class="shadow p-3 mb-5 bg-white rounded">
       <p>Data wysłania: {{ order.date_of_sending_to_supervisor|date:"d - m - Y" }}</p>
       {% for clothe in order.clothes_ordered.all %}
         <p>{{ clothe.kind.name }} dla {{ clothe.employee.name }} {{ clothe.employee.surname }}</p>

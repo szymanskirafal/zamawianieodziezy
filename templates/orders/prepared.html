@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container">
+<div class="container bg-light">
   <br><br>
   <h1>Zamówienie przygotowane do wysłania.</h1>
   <br><br>
   <h2>Zamówienie dla {{ order.place_of_delivery.name }}</h2>
   <br><br>
   {% for clothe in clothes %}
-    <div class="shadow-sm p-3 mb-5 bg-light rounded">
+    <div class="shadow-sm p-3 mb-5 bg-white rounded">
       <p>{{ clothe.kind__name }}, {{ clothe.employee__name }} {{ clothe.employee__surname }}</p>
       <a class="btn btn-outline-danger" href="{% url 'clothes:delete' clothe.id %}" role="button">Usuń</a>
     </div>

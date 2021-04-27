@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container">
+<div class="container bg-light">
   <br><br>
   <h1>Supervisor Dashboard</h1>
 
@@ -13,7 +13,7 @@
     <p>Nie ma zamówień czekających na akceptację.</p>
   {% else %}
     {% for order in orders_not_approved %}
-      <div class="shadow p-3 mb-5 bg-light rounded">
+      <div class="shadow p-3 mb-5 bg-white rounded">
         <p>Zamawiający: {{ order.manager }}</p>
         <p>Data przysłania do akceptacji: {{ order.date_of_sending_to_supervisor|date:"d - m - Y" }}</p>
         <a class="btn btn-outline-primary" href="{% url 'supervisor:order' pk=order.pk %}" role="button">Zobacz</a>
@@ -26,7 +26,7 @@
     <p>Nie ma zamówień wysłanych do producenta.</p>
   {% else %}
     {% for order in orders_sent_to_manufacturer %}
-      <div class="shadow p-3 mb-5 bg-light rounded">
+      <div class="shadow p-3 mb-5 bg-white rounded">
         <p>Zamawiający: {{ order.manager }}</p>
         <p>Data przysłania do akceptacji: {{ order.date_of_sending_to_supervisor|date:"d - m - Y" }}</p>
         <p>Data wysłania do producenta: {{ order.date_of_sending_to_manufacturer|date:"d - m - Y" }}</p>
@@ -40,7 +40,7 @@
     <p>Nie ma zamówień otrzymanych od producenta.</p>
   {% else %}
     {% for order in orders_received_from_manufacturer %}
-      <div class="shadow p-3 mb-5 bg-light rounded">
+      <div class="shadow p-3 mb-5 bg-white rounded">
         <p>Zamawiający: {{ order.manager }}</p>
         <p>Data przysłania do akceptacji: {{ order.date_of_sending_to_supervisor|date:"d - m - Y" }}</p>
         <p>Data wysłania do producenta: {{ order.date_of_sending_to_manufacturer|date:"d - m - Y" }}</p>
