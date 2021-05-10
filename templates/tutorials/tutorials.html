@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load embed_video_tags %}
+{% block content %}
+<div class="container">
+  <br><br>
+  <h1>Tutoriale</h1>
+  {% for tutorial in tutorials %}
+    {% video tutorial.video 'small' %}
+  {% endfor %}
+</div>
+{% endblock content %}

@@ -51,12 +51,14 @@ INSTALLED_APPS = [
     'employees.apps.EmployeesConfig',
     'orders.apps.OrdersConfig',
     'supervisor.apps.SupervisorConfig',
+    'tutorials.apps.TutorialsConfig',
     'users.apps.UsersConfig',
 
      # Third-party
     'allauth',
     'allauth.account',
     'crispy_forms',
+    'embed_video',
 
 ]
 
@@ -89,7 +91,10 @@ TEMPLATES = [
     },
 ]
 
+
+
 WSGI_APPLICATION = 'config.wsgi.application'
+
 
 
 # Database
@@ -118,6 +123,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# django-embed-video
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.request',
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/

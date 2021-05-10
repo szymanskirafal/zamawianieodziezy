@@ -11,6 +11,7 @@ django-crispy-forms = "*"
 environs = {extras = ["django"], version = "*"}
 gunicorn = "*"
 whitenoise = "*"
+django-embed-video = "*"
 
 [dev-packages]
 
