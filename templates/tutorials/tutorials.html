@@ -3,9 +3,12 @@
 {% block content %}
 <div class="container">
   <br><br>
-  <h1>Tutoriale</h1>
+  <h1>Instrukcje</h1>
+  <br><br>
   {% for tutorial in tutorials %}
+    <h2>{{ tutorial.title }}</h2>
     {% video tutorial.video 'small' %}
+    <br><br>
   {% endfor %}
 </div>
 {% endblock content %}
