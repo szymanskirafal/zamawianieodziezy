@@ -21,7 +21,8 @@
     <br><br>
   {% endif %}
   {% if kinds_prepared_to_order %}
-    <h3>Ubrania, które zamówiono</h3>
+    <h3>Ubrania, które dodano do zamówienia</h3>
+    <p>Zamówienie trzeba jeszcze wysłać</p>
     {% for kind in kinds_prepared_to_order %}
       <div class="p-3 mb-2 bg-white bg-gradient shadow-sm">
         <p>{{ kind.name }}</p>
