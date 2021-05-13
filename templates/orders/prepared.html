@@ -15,7 +15,10 @@
 
   {% endfor %}
   <br><br>
-  <a class="btn btn-outline-primary" href="{% url 'orders:send' order.id %}" role="button">Wyślij zamówinie</a>
+  <a class="btn btn-lg btn-outline-primary" href="{% url 'employees:employees' %}" role="button">Zamów coś jeszcze</a>
+  <br><br>
+  <br><br>
+  <a class="btn btn-lg btn-outline-primary" href="{% url 'orders:send' order.id %}" role="button">Wyślij zamówinie</a>
   <br><br>
 </div>
 
