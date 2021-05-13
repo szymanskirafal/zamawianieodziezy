@@ -26,7 +26,7 @@
     {% for kind in kinds_prepared_to_order %}
       <div class="p-3 mb-2 bg-white bg-gradient shadow-sm">
         <p>{{ kind.name }}</p>
-        <a class="btn btn-outline-primary" href="#" role="button">Sprawdź</a>
+        <a class="btn btn-outline-primary" href="{% url 'orders:prepared' %}" role="button">Sprawdź</a>
       </div>
     {% endfor %}
     <br><br>
