@@ -15,7 +15,7 @@
     {% for kind in kinds_that_can_be_ordered %}
       <div class="p-3 mb-2 bg-white rounded shadow-sm">
         <p>{{ kind.name }}</p>
-        <a class="btn btn-outline-primary" href="{% url 'clothes:clothe-create' kind.pk employee.pk %}" role="button">Zamów</a>
+        <a class="btn btn-lg btn-outline-primary" href="{% url 'clothes:clothe-create' kind.pk employee.pk %}" role="button">Zamów</a>
       </div>
     {% endfor %}
     <br><br>
@@ -26,7 +26,7 @@
     {% for kind in kinds_prepared_to_order %}
       <div class="p-3 mb-2 bg-white bg-gradient shadow-sm">
         <p>{{ kind.name }}</p>
-        <a class="btn btn-outline-primary" href="{% url 'orders:prepared' %}" role="button">Sprawdź</a>
+        <a class="btn btn-lg btn-outline-primary" href="{% url 'orders:prepared' %}" role="button">Sprawdź</a>
       </div>
     {% endfor %}
     <br><br>
@@ -36,7 +36,7 @@
     {% for kind in kinds_that_can_not_be_ordered_yet %}
       <div class="p-3 mb-2 bg-white bg-gradient shadow-sm">
         <p>{{ kind.name }}</p>
-        <a class="btn btn-outline-success" href="#" role="button">Sprawdź</a>
+        <a class="btn btn-lg btn-outline-success" href="#" role="button">Sprawdź</a>
       </div>
     {% endfor %}
     <br><br>
